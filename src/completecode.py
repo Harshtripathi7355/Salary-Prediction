@@ -52,6 +52,48 @@ def evaluate_model(model_path: str, test_data_path: str):
     X = df.drop('Salary', axis=1)
     y = df['Salary']
     preds = model.predict(X)
+    import matplotlib.pyplot as plt
+import numpy as np
+
+# --- Prerequisites: Assume you have these variables from your model ---
+# y_test: The actual salary values from your test dataset.
+# y_pred: The salary values predicted by your Random Forest model.
+
+# As a placeholder, let's create some sample data.
+# In your project, you will use your actual 'y_test' and 'y_pred'.
+np.random.seed(42)
+y_test = np.random.randint(50000, 250000, size=300)
+# Simulate predictions with some noise
+y_pred = y_test + np.random.normal(0, 15000, size=300)
+# --------------------------------------------------------------------
+
+
+# Create the scatter plot
+plt.figure(figsize=(8, 6))
+plt.scatter(y_test, y_pred, alpha=0.8, edgecolors='w', s=50)
+
+# Set the title and labels
+plt.title('Actual vs Predicted Salary using Random Forest', fontsize=14)
+plt.xlabel('Actual Salary', fontsize=12)
+plt.ylabel('Predicted Salary', fontsize=12)
+
+# Add a grid for better readability
+plt.grid(True)
+
+# Add the 'perfect prediction' diagonal line (y=x)
+# Find the limits of the plot to draw the line across the entire view
+lims = [
+    np.min([plt.xlim(), plt.ylim()]),  # min of both axes
+    np.max([plt.xlim(), plt.ylim()]),  # max of both axes
+]
+
+# Plot the diagonal line
+plt.plot(lims, lims, 'r--', alpha=0.75, zorder=0)
+plt.xlim(lims)
+plt.ylim(lims)
+
+# Show the plot
+plt.show()
     print(f"R2 Score: {r2_score(y, preds):.4f}")
     print(f"MSE: {mean_squared_error(y, preds):.2f}")
 import pandas as pd
