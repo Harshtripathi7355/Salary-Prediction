@@ -10,7 +10,7 @@ def load_data(csv_path: str) -> pd.DataFrame:
 
 def save_processed(data: pd.DataFrame, out_path: str) -> None:
     data.to_csv(out_path, index=False)
-  import pandas as pd
+import pandas as pd
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 def preprocess(df: pd.DataFrame) -> pd.DataFrame:
@@ -28,7 +28,7 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     scaler = StandardScaler()
     scaled = scaler.fit_transform(numeric)
     scaled_df = pd.DataFrame(scaled, columns=numeric.columns)
-  from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.model_selection import GridSearchCV
 import joblib
 
@@ -42,7 +42,7 @@ def train_model(X, y, config: dict) -> dict:
         results[name] = best
         joblib.dump(best, f"models/{name}_model.pkl")
     return results
-  import joblib
+import joblib
 import pandas as pd
 from sklearn.metrics import r2_score, mean_squared_error
 
@@ -54,7 +54,7 @@ def evaluate_model(model_path: str, test_data_path: str):
     preds = model.predict(X)
     print(f"R2 Score: {r2_score(y, preds):.4f}")
     print(f"MSE: {mean_squared_error(y, preds):.2f}")
-  import pandas as pd
+import pandas as pd
 import numpy as np
 
 # Reproducibility
@@ -113,7 +113,7 @@ def main():
 
 if __name__ == '__main__':
     main()
-  import argparse
+import argparse
 from src.evaluation import evaluate_model
 
 def main():
@@ -127,4 +127,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-    return pd.concat([scaled_df, encoded_df], axis=1)
+
