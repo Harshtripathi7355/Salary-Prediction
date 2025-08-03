@@ -1,0 +1,10 @@
+data:
+  raw_path: data/raw/salary_data.csv
+  processed_path: data/processed/processed.csv
+model:
+  random_forest:
+    n_estimators: [100, 200]
+    max_depth: [None, 10, 20]
+  gradient_boosting:
+    learning_rate: [0.01, 0.1]
+    n_estimators: [100, 200]
