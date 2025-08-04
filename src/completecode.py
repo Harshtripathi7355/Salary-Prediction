@@ -52,7 +52,7 @@ def evaluate_model(model_path: str, test_data_path: str):
     X = df.drop('Salary', axis=1)
     y = df['Salary']
     preds = model.predict(X)
-    import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 
 # --- Prerequisites: Assume you have these variables from your model ---
